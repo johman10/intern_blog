@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+	{% if meta.description %}
+		<meta name="description" content="{{ meta.description }}">
+	{% endif %}{% if meta.robots %}
+		<meta name="robots" content="{{ meta.robots }}">
+	{% endif %}
+
+	<link rel="stylesheet" href="{{ theme_url }}/style/css/style.css" type="text/css" />
+</head>
+<body>
+	<section class="site-info">
+		<img src="images/profile.png" alt="{{ config.site_author }}">
+		<h1 class="site-author">{{ config.site_author }}</h1>
+		<p class="site-description">{{ config.site_description }}</p>
+	</section>
+
+	{% if is_front_page %}
+		<section class="home-posts-container">
+			{% for page in pages %}
+				<article class="home-post-container">
+					<h3 class="home-post-title"><a class="home-post-title-url" href="{{ page.url }}">{{ page.title }}</a></h3>
+					{% if page.date %}
+						<p class="home-post-date">{{ page.date_formatted }}</p>
+					{% endif %}
+					<p class="home-post-preview">{{ page.excerpt }}</p>
+				</article>
+			{% endfor %}
+		</section>
+	{% else %}
+		<article class="post-container">
+			{% if meta.title %}<h2 class="post-title">{{ meta.title }}</h2>{% endif %}
+			{% if page.date %}
+				<p class="post-date">{{ meta.date_formatted }}</p>
+			{% endif %}
+			<p class="post-content">
+				{{ content }}
+			</p>
+		</article>
+	{% endif %}
+</body>
+</html>
