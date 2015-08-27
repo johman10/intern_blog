@@ -6,8 +6,8 @@ http_path = '/'
 project_path = 'themes/fancy'
 css_dir = 'style/css'
 sass_dir = 'style/sass'
-images_dir = 'images'
-javascripts_dir = 'scripts'
+images_dir = 'themes/fancy/images'
+javascripts_dir = 'themes/fancy/scripts'
 
 # You can select your preferred output style here (can be overridden via the command line):
 output_style = :compressed

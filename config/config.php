@@ -58,7 +58,7 @@ $config['pico_minify'] = array(
 /*
  * Cache - https://github.com/glumb/pico_cache
  */
-$config['cache_enabled'] = true; // default
+$config['cache_enabled'] = false; // default
 $config['cache_dir'] = 'content/cache/'; // default
 $config['cache_time'] = '604800'; // 60*60*24*7, seven days (default)
 

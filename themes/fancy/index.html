@@ -8,37 +8,43 @@
 		<meta name="robots" content="{{ meta.robots }}">
 	{% endif %}
 
+	<script src="{{ theme_url }}/scripts/jquery.min.js"></script>
+	<script src="{{ theme_url }}/scripts/script.js"></script>
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,100italic,300italic,400italic,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="{{ theme_url }}/style/css/style.css" type="text/css" />
 </head>
-<body>
-	<section class="site-info">
-		<img src="images/profile.png" alt="{{ config.site_author }}">
-		<h1 class="site-author">{{ config.site_author }}</h1>
-		<p class="site-description">{{ config.site_description }}</p>
-	</section>
+	<body>
+		<div class="site-container">
+			<section class="site-info">
+				<div class="site-author-picture"></div>
+				<h1 class="site-author-name">{{ config.site_author }}</h1>
+				<p class="site-description">{{ config.site_description }}</p>
+			</section>
 
-	{% if is_front_page %}
-		<section class="home-posts-container">
-			{% for page in pages %}
-				<article class="home-post-container">
-					<h3 class="home-post-title"><a class="home-post-title-url" href="{{ page.url }}">{{ page.title }}</a></h3>
-					{% if page.date %}
-						<p class="home-post-date">{{ page.date_formatted }}</p>
+			{% if is_front_page %}
+				<section class="home-posts-container">
+					{% for page in pages %}
+						<article class="home-post-container">
+							<h1 class="home-post-title"><a class="home-post-title-url" href="{{ page.url }}">{{ page.title }}</a></h1>
+							{% if page.date %}
+								<p class="home-post-date">{{ page.date_formatted }}</p>
+							{% endif %}
+							<p class="home-post-preview">{{ page.excerpt }}</p>
+						</article>
+					{% endfor %}
+				</section>
+			{% else %}
+				<article class="post-container">
+					{% if meta.title %}<h1 class="post-title">{{ meta.title }}</h1>{% endif %}
+					{% if meta.date_formatted %}
+						<p class="post-date">{{ meta.date_formatted }}</p>
 					{% endif %}
-					<p class="home-post-preview">{{ page.excerpt }}</p>
+					<p class="post-content">
+						{{ content }}
+					</p>
 				</article>
-			{% endfor %}
-		</section>
-	{% else %}
-		<article class="post-container">
-			{% if meta.title %}<h2 class="post-title">{{ meta.title }}</h2>{% endif %}
-			{% if page.date %}
-				<p class="post-date">{{ meta.date_formatted }}</p>
 			{% endif %}
-			<p class="post-content">
-				{{ content }}
-			</p>
-		</article>
-	{% endif %}
-</body>
+		</div>
+	</body>
 </html>

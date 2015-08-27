@@ -1,1 +1,121 @@
+$head-text-color: #9E9E9E
+$accent-color: #2299B5
+$date-color: $head-text-color
+
+$text-size: 15px
+$small-text-size: $text-size - 2
+$header-1-size: $text-size + 10
+$header-2-size: $text-size + 7
+$header-3-size: $text-size + 4
+
+@import "compass/support"
+@import "compass/reset"
+
+*
+  box-sizing: border-box
+
+body
+  margin-top: 10px
+  font-family: "Roboto", sans-serif
+  font-weight: 300
+  -webkit-font-smoothing: antialiased
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004)
+  font-size: $text-size
+
+p
+  margin: 5px 0
+
+h1
+  margin: 15px 0
+  font-size: $header-1-size
+  font-weight: 400
+
+h2
+  margin: 15px 0
+  font-size: $header-2-size
+  font-weight: 400
+
+h3
+  margin: 15px 0
+  font-size: $header-3-size
+
+.site-container
+  display: flex
+  justify-content: center
+  width: 100%
+
+  .site-info
+    width: 200px
+    padding: 10px
+
+  .home-posts-container,
+  .post-container
+    width: 500px
+    padding: 10px
+
+.site-info
+  .site-author-picture
+    background-image: image-url('profile.jpg')
+    height: 150px
+    width: 150px
+    left: 15px
+    position: relative
+    border-radius: 50%
+    background-size: cover
+    background-position: 50% 50%
+    margin-top: 15px
+
+  .site-author-name
+    color: $accent-color
+    text-align: center
+
+  .site-description
+    text-align: justify
+
+
+.home-posts-container
+  .home-post-title
+    margin-bottom: 5px
+
+  .home-post-title-url
+    color: $accent-color
+    text-decoration: none
+
+    &:hover
+      opacity: .70
+
+  .home-post-date
+    color: $date-color
+    margin-bottom: 10px
+    font-size: $small-text-size
+
+.post-container
+  .post-title
+    margin-bottom: 5px
+    color: $accent-color
+
+  .post-date
+    color: $date-color
+    margin-bottom: 10px
+    font-size: $small-text-size
+
+  .post-content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
